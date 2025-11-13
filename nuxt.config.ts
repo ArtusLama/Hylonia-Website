@@ -13,6 +13,7 @@ export default defineNuxtConfig({
         "shadcn-nuxt",
         "@vueuse/nuxt",
         "@nuxtjs/color-mode",
+        "@nuxtjs/seo",
     ],
 
     eslint: {

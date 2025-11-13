@@ -1,3 +1,16 @@
+<script setup lang="ts">
+useHead({
+    titleTemplate: t => t ? `${t} - Hylonia.net` : "Hylonia.net - Wo Spielspaß an erster Stelle steht",
+})
+useSchemaOrg([
+    defineOrganization({
+        name: "Hylonia",
+        logo: "/img/logo.png",
+        url: "https://hylonia.net",
+    }),
+])
+</script>
+
 <template>
     <div>
         <NuxtRouteAnnouncer />
