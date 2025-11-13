@@ -14,6 +14,7 @@ export default defineNuxtConfig({
         "@vueuse/nuxt",
         "@nuxtjs/color-mode",
         "@nuxtjs/seo",
+        "@nuxtjs/i18n",
     ],
 
     eslint: {
@@ -34,5 +35,25 @@ export default defineNuxtConfig({
     colorMode: {
         preference: "light",
         fallback: "light",
+    },
+
+    // i18n for translations -> currently only German supported
+    i18n: {
+        // baseUrl: "https://TheWebsiteUrl...", -> TODO: Set the website URL
+        defaultLocale: "de",
+        locales: [
+            {
+                code: "de",
+                language: "de-DE",
+                name: "Deutsch",
+                file: "de.json",
+            },
+        ],
+        strategy: "prefix_except_default",
+        detectBrowserLanguage: {
+            useCookie: true,
+            cookieKey: "i18n_redirected",
+            redirectOn: "root",
+        },
     },
 })

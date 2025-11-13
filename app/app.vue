@@ -1,4 +1,5 @@
 <script setup lang="ts">
+useLocaleHead()
 useHead({
     titleTemplate: t => t ? `${t} - Hylonia.net` : "Hylonia.net - Wo Spielspaß an erster Stelle steht",
 })
