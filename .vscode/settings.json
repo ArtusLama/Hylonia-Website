@@ -4,4 +4,8 @@
         "source.fixAll.eslint": "explicit",
         "source.organizeImports": "never"
     },
+    "i18n-ally.localesPaths": [
+        "i18n",
+        "i18n/locales"
+    ],
 }
