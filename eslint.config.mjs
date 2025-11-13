@@ -14,7 +14,7 @@ export default withNuxt({
         "vue/brace-style": ["error", "1tbs", { allowSingleLine: true }],
 
         "vue/block-order": ["error", {
-            order: ["template", "script", "style"],
+            order: ["script", "template", "style"],
         }],
 
         "nuxt/nuxt-config-keys-order": "off",
