@@ -15,6 +15,7 @@ export default defineNuxtConfig({
         "@nuxtjs/color-mode",
         "@nuxtjs/seo",
         "@nuxtjs/i18n",
+        "@pinia/nuxt",
     ],
 
     eslint: {
@@ -54,6 +55,14 @@ export default defineNuxtConfig({
             useCookie: true,
             cookieKey: "i18n_redirected",
             redirectOn: "root",
+        },
+    },
+
+    runtimeConfig: {
+        public: {
+            mcServer: {
+                address: "hylonia.net",
+            },
         },
     },
 })
