@@ -1,13 +1,16 @@
 <script setup lang="ts">
 const modelValue = defineModel<boolean>({})
+const toggleOpen = () => {
+    modelValue.value = !modelValue.value
+}
 </script>
 
 <template>
     <UiButton
-        variant="ghost"
+        variant="outline"
         size="icon"
         class="size-12 text-muted-foreground"
-        @click="modelValue = !modelValue"
+        @click="toggleOpen"
     >
         <svg
             viewBox="0 0 100 100"
