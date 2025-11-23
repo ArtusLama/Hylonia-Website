@@ -1,7 +1,11 @@
 <script setup lang="ts">
 const serverStatsStore = useMcServerStatusStore()
+const serverStatus: ComputedRef<"loading" | "online" | "offline"> = computed(() => {
+    if (!serverStatsStore.stats) return "loading"
+    return serverStatsStore.stats.online ? "online" : "offline"
+})
 
-useIntervalFn(serverStatsStore.fetchServerStatus, 4 * 60 * 1000, { immediate: true, immediateCallback: true })
+onMounted(() => useIntervalFn(serverStatsStore.fetchServerStatus, 4 * 60 * 1000, { immediate: true, immediateCallback: true }))
 
 const { ready: showCopyIcon, start: startShowCopied } = useTimeout(2000, { controls: true, immediate: false })
 
@@ -28,11 +32,21 @@ function copyServerAddress() {
 
         <div class="flex items-center gap-2">
             <span
-                :class="serverStatsStore.stats?.online ? 'bg-green-500 after:bg-green-500 after:rounded-full after:absolute after:inset-0 after:animate-ping' : 'bg-red-500'"
+                :class="serverStatus === 'loading'
+                    ? 'bg-footer-muted-foreground/50'
+                    : serverStatus === 'online'
+                        ? 'bg-green-500 after:bg-green-500 after:rounded-full after:absolute after:inset-0 after:animate-ping'
+                        : 'bg-red-500'"
                 class="size-3 rounded-full animate-pulse mt-px relative shrink-0"
             />
             <p
-                v-if="serverStatsStore.stats?.players"
+                v-if="serverStatus === 'loading'"
+                class="text-footer-muted-foreground/50"
+            >
+                Loading status...
+            </p>
+            <p
+                v-else-if="serverStatus === 'online' && serverStatsStore.stats?.players"
                 class="font-semibold"
             >
                 <span class="font-bold">{{ serverStatsStore.stats.players.online }}</span>
