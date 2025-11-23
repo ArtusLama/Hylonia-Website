@@ -14,6 +14,11 @@ useSchemaOrg([
 
 <template>
     <div>
+        <VueLenis
+            root
+            :options="{ duration: 1 }"
+        />
+
         <NuxtRouteAnnouncer />
         <NuxtLoadingIndicator
             color="var(--color-primary)"
