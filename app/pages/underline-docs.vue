@@ -78,12 +78,12 @@ useSeoMeta({
                     <div class="space-y-4">
                         <div class="border rounded-lg p-6 bg-card">
                             <div class="mb-4 text-center py-3 bg-accent/10 rounded">
-                                <a class="underline-base underline-from-left hover:underline-expanded text-2xl cursor-pointer font-medium">
-                                    From Left
+                                <a class="underline-base underline-left hover:underline-expanded text-2xl cursor-pointer font-medium">
+                                    Left
                                 </a>
                             </div>
                             <code class="block bg-muted p-4 rounded text-sm font-mono">
-                                class="underline-base underline-from-left hover:underline-expanded"
+                                class="underline-base underline-left hover:underline-expanded"
                             </code>
                             <p class="text-sm text-muted-foreground mt-2">
                                 Default - expands and collapses left to right
@@ -92,12 +92,12 @@ useSeoMeta({
 
                         <div class="border rounded-lg p-6 bg-card">
                             <div class="mb-4 text-center py-3 bg-accent/10 rounded">
-                                <a class="underline-base underline-from-right hover:underline-expanded text-2xl cursor-pointer font-medium">
-                                    From Right
+                                <a class="underline-base underline-right hover:underline-expanded text-2xl cursor-pointer font-medium">
+                                    Right
                                 </a>
                             </div>
                             <code class="block bg-muted p-4 rounded text-sm font-mono">
-                                class="underline-base underline-from-right hover:underline-expanded"
+                                class="underline-base underline-right hover:underline-expanded"
                             </code>
                             <p class="text-sm text-muted-foreground mt-2">
                                 Expands and collapses right to left
@@ -106,12 +106,12 @@ useSeoMeta({
 
                         <div class="border rounded-lg p-6 bg-card">
                             <div class="mb-4 text-center py-3 bg-accent/10 rounded">
-                                <a class="underline-base underline-from-center hover:underline-expanded text-2xl cursor-pointer font-medium">
-                                    From Center
+                                <a class="underline-base underline-center hover:underline-expanded text-2xl cursor-pointer font-medium">
+                                    Center
                                 </a>
                             </div>
                             <code class="block bg-muted p-4 rounded text-sm font-mono">
-                                class="underline-base underline-from-center hover:underline-expanded"
+                                class="underline-base underline-center hover:underline-expanded"
                             </code>
                             <p class="text-sm text-muted-foreground mt-2">
                                 Expands and collapses from center outward
@@ -131,12 +131,12 @@ useSeoMeta({
                     <div class="space-y-4">
                         <div class="border rounded-lg p-6 bg-card">
                             <div class="mb-4 text-center py-3 bg-accent/10 rounded">
-                                <a class="underline-base underline-in-from-left underline-out-from-right hover:underline-expanded text-2xl cursor-pointer font-medium">
+                                <a class="underline-base underline-in-left underline-out-right hover:underline-expanded text-2xl cursor-pointer font-medium">
                                     Left In, Right Out
                                 </a>
                             </div>
                             <code class="block bg-muted p-4 rounded text-sm font-mono">
-                                class="underline-base underline-in-from-left underline-out-from-right hover:underline-expanded"
+                                class="underline-base underline-in-left underline-out-right hover:underline-expanded"
                             </code>
                             <p class="text-sm text-muted-foreground mt-2">
                                 Enters from left, exits to right
@@ -145,12 +145,12 @@ useSeoMeta({
 
                         <div class="border rounded-lg p-6 bg-card">
                             <div class="mb-4 text-center py-3 bg-accent/10 rounded">
-                                <a class="underline-base underline-in-from-right underline-out-from-left hover:underline-expanded text-2xl cursor-pointer font-medium">
+                                <a class="underline-base underline-in-right underline-out-left hover:underline-expanded text-2xl cursor-pointer font-medium">
                                     Right In, Left Out
                                 </a>
                             </div>
                             <code class="block bg-muted p-4 rounded text-sm font-mono">
-                                class="underline-base underline-in-from-right underline-out-from-left hover:underline-expanded"
+                                class="underline-base underline-in-right underline-out-left hover:underline-expanded"
                             </code>
                             <p class="text-sm text-muted-foreground mt-2">
                                 Enters from right, exits to left
@@ -159,12 +159,12 @@ useSeoMeta({
 
                         <div class="border rounded-lg p-6 bg-card">
                             <div class="mb-4 text-center py-3 bg-accent/10 rounded">
-                                <a class="underline-base underline-in-from-center underline-out-from-left hover:underline-expanded text-2xl cursor-pointer font-medium">
+                                <a class="underline-base underline-in-center underline-out-left hover:underline-expanded text-2xl cursor-pointer font-medium">
                                     Center In, Left Out
                                 </a>
                             </div>
                             <code class="block bg-muted p-4 rounded text-sm font-mono">
-                                class="underline-base underline-in-from-center underline-out-from-left hover:underline-expanded"
+                                class="underline-base underline-in-center underline-out-left hover:underline-expanded"
                             </code>
                             <p class="text-sm text-muted-foreground mt-2">
                                 Enters from center, exits to left
@@ -173,12 +173,12 @@ useSeoMeta({
 
                         <div class="border rounded-lg p-6 bg-card">
                             <div class="mb-4 text-center py-3 bg-accent/10 rounded">
-                                <a class="underline-base underline-in-from-center underline-out-from-right hover:underline-expanded text-2xl cursor-pointer font-medium">
+                                <a class="underline-base underline-in-center underline-out-right hover:underline-expanded text-2xl cursor-pointer font-medium">
                                     Center In, Right Out
                                 </a>
                             </div>
                             <code class="block bg-muted p-4 rounded text-sm font-mono">
-                                class="underline-base underline-in-from-center underline-out-from-right hover:underline-expanded"
+                                class="underline-base underline-in-center underline-out-right hover:underline-expanded"
                             </code>
                             <p class="text-sm text-muted-foreground mt-2">
                                 Enters from center, exits to right
@@ -191,8 +191,8 @@ useSeoMeta({
                             <strong class="text-foreground">Available modifiers:</strong>
                         </p>
                         <ul class="mt-2 space-y-1 text-sm text-muted-foreground">
-                            <li><code class="bg-muted px-2 py-1 rounded">underline-in-from-left</code> / <code class="bg-muted px-2 py-1 rounded">underline-in-from-right</code> / <code class="bg-muted px-2 py-1 rounded">underline-in-from-center</code></li>
-                            <li><code class="bg-muted px-2 py-1 rounded">underline-out-from-left</code> / <code class="bg-muted px-2 py-1 rounded">underline-out-from-right</code> / <code class="bg-muted px-2 py-1 rounded">underline-out-from-center</code></li>
+                            <li><code class="bg-muted px-2 py-1 rounded">underline-in-left</code> / <code class="bg-muted px-2 py-1 rounded">underline-in-right</code> / <code class="bg-muted px-2 py-1 rounded">underline-in-center</code></li>
+                            <li><code class="bg-muted px-2 py-1 rounded">underline-out-left</code> / <code class="bg-muted px-2 py-1 rounded">underline-out-right</code> / <code class="bg-muted px-2 py-1 rounded">underline-out-center</code></li>
                             <li class="mt-2 text-xs">
                                 Mix and match any combination for 9 total possibilities
                             </li>

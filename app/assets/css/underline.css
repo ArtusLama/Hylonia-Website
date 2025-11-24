@@ -19,14 +19,14 @@
    CUSTOMIZATION:
    --------------
    Direction (simple - same for in & out):
-     underline-from-left    → Expand left to right (default)
-     underline-from-right   → Expand right to left
-     underline-from-center  → Expand from center
+     underline-left     → Expand left to right (default)
+     underline-right    → Expand right to left
+     underline-center   → Expand from center
    
    Direction (advanced - independent in/out control):
-     underline-in-from-left + underline-out-from-right  → Enter from left, exit to right
-     underline-in-from-right + underline-out-from-left  → Enter from right, exit to left
-     underline-in-from-center + underline-out-from-left → Enter from center, exit to left
+     underline-in-left + underline-out-right   → Enter from left, exit to right
+     underline-in-right + underline-out-left   → Enter from right, exit to left
+     underline-in-center + underline-out-left  → Enter from center, exit to left
      (Mix and match any combination)
    
    Thickness (theme + arbitrary):
@@ -56,7 +56,7 @@
    ---------
    <a class="underline-base hover:underline-expanded">
    
-   <a class="underline-base underline-from-center underline-duration-fast 
+   <a class="underline-base underline-center underline-duration-fast 
              hover:underline-expanded">
    
    <button class="underline-base underline-bold underline-ease-bounce 
@@ -124,46 +124,46 @@
 }
 
 /* Direction utilities - simple (same for both in/out) */
-@utility underline-from-left {
+@utility underline-left {
     --underline-origin: left;
     --underline-origin-in: left;
     --underline-origin-out: left;
 }
 
-@utility underline-from-right {
+@utility underline-right {
     --underline-origin: right;
     --underline-origin-in: right;
     --underline-origin-out: right;
 }
 
-@utility underline-from-center {
+@utility underline-center {
     --underline-origin: center;
     --underline-origin-in: center;
     --underline-origin-out: center;
 }
 
 /* Independent direction control for in/out animations */
-@utility underline-in-from-left {
+@utility underline-in-left {
     --underline-origin-in: left;
 }
 
-@utility underline-in-from-right {
+@utility underline-in-right {
     --underline-origin-in: right;
 }
 
-@utility underline-in-from-center {
+@utility underline-in-center {
     --underline-origin-in: center;
 }
 
-@utility underline-out-from-left {
+@utility underline-out-left {
     --underline-origin-out: left;
 }
 
-@utility underline-out-from-right {
+@utility underline-out-right {
     --underline-origin-out: right;
 }
 
-@utility underline-out-from-center {
+@utility underline-out-center {
     --underline-origin-out: center;
 }
 
@@ -177,14 +177,14 @@
 /* Offset utilities - positive values move underline down (away from text) */
 @utility underline-offset-* {
     --underline-offset: calc(--value(integer) * var(--spacing) * -1);
-    --underline-offset: --value([dimension]);
+    --underline-offset: calc(--value([dimension]) * -1);
     --underline-offset: calc(--value(--spacing-*) * -1);
     --underline-offset: --value(--underline-offset-*);
 }
 
 @utility -underline-offset-* {
     --underline-offset: calc(--value(integer) * var(--spacing));
-    --underline-offset: calc(--value([dimension]) * -1);
+    --underline-offset: --value([dimension]);
     --underline-offset: --value(--spacing-*);
     --underline-offset: calc(--value(--underline-offset-*) * -1);
 }

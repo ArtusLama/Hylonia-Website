@@ -12,10 +12,12 @@ const { link } = defineProps<{
     >
         <NuxtLinkLocale
             :to="link.to"
-            class="tracking-tight text-muted-foreground transition-all hover:text-primary underline-base underline-from-center hover:underline-expanded"
-            active-class="text-primary underline-expanded"
+            class="group tracking-tight text-muted-foreground transition-all hover:text-primary"
+            active-class="text-primary [&>span]:underline-expanded"
         >
-            {{ link.label }}
+            <span class="underline-base underline-in-left underline-out-right group-hover:underline-expanded">
+                {{ link.label }}
+            </span>
         </NuxtLinkLocale>
     </UiButton>
 </template>
