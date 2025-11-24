@@ -1,6 +1,9 @@
 @import "tailwindcss";
 @import "tw-animate-css";
 
+@import "./underline.css";
+
+
 @custom-variant dark (&:is(.dark *));
 
 @theme inline {
@@ -8,6 +11,18 @@
   --radius-md: calc(var(--radius) - 2px);
   --radius-lg: var(--radius);
   --radius-xl: calc(var(--radius) + 4px);
+  
+  /* Animated underline theme tokens */
+  --underline-thickness-thin: 1px;
+  --underline-thickness-thick: 3px;
+  --underline-thickness-bold: 4px;
+  --underline-offset-1: -2px;
+  --underline-offset-2: -4px;
+  --underline-duration-fast: 150ms;
+  --underline-duration-slow: 500ms;
+  --underline-ease-bounce: cubic-bezier(0.68, -0.55, 0.265, 1.55);
+  --underline-ease-spring: cubic-bezier(0.34, 1.56, 0.64, 1);
+  
   --color-background: var(--background);
   --color-foreground: var(--foreground);
   --color-card: var(--card);

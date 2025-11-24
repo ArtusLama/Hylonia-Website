@@ -1,0 +1,214 @@
+
+/* ============================================
+   Animated Underline System - Tailwind v4
+   ============================================
+   
+   GPU-accelerated underline animations with full Tailwind variant support.
+   
+   BASIC USAGE:
+   ------------
+   <a class="underline-base hover:underline-expanded">
+      Hover me
+   </a>
+   
+   PATTERN:
+   --------
+   1. underline-base              → Sets up positioning, CSS variables & initial hidden state
+   2. [trigger]:underline-expanded → Show on your trigger
+   
+   CUSTOMIZATION:
+   --------------
+   Direction (simple - same for in & out):
+     underline-from-left    → Expand left to right (default)
+     underline-from-right   → Expand right to left
+     underline-from-center  → Expand from center
+   
+   Direction (advanced - independent in/out control):
+     underline-in-from-left + underline-out-from-right  → Enter from left, exit to right
+     underline-in-from-right + underline-out-from-left  → Enter from right, exit to left
+     underline-in-from-center + underline-out-from-left → Enter from center, exit to left
+     (Mix and match any combination)
+   
+   Thickness (theme + arbitrary):
+     underline-thin         → 1px
+     underline-thick        → 3px
+     underline-bold         → 4px
+     underline-[5px]        → Any length
+   
+   Duration (theme + arbitrary):
+     underline-duration-fast    → 150ms
+     underline-duration-slow    → 500ms
+     underline-duration-[1s]    → Any duration
+   
+   Timing (theme + arbitrary):
+     underline-ease-bounce      → Elastic bounce
+     underline-timing-[ease-in] → Any timing function
+   
+   Offset (theme + arbitrary, supports negative):
+     underline-offset-1         → -2px
+     underline-offset-[4px]     → Positive offset
+     -underline-offset-[5px]    → Negative offset
+   
+   Color (arbitrary):
+     underline-color-[red]      → Any color
+   
+   EXAMPLES:
+   ---------
+   <a class="underline-base hover:underline-expanded">
+   
+   <a class="underline-base underline-from-center underline-duration-fast 
+             hover:underline-expanded">
+   
+   <button class="underline-base underline-bold underline-ease-bounce 
+                  active:underline-expanded">
+   
+   <a class="underline-base underline-[8px] underline-duration-[2s] 
+             underline-color-[#3b82f6] hover:underline-expanded">
+   
+   ============================================ */
+
+/* Theme tokens - users can extend these with their own variants */
+@theme inline {
+    /* Thickness variants */
+    --underline-thickness-thin: 1px;
+    --underline-thickness-thick: 3px;
+    --underline-thickness-bold: 4px;
+    
+    /* Duration variants */
+    --underline-duration-fast: 150ms;
+    --underline-duration-slow: 500ms;
+    
+    /* Timing function presets */
+    --underline-ease-bounce: cubic-bezier(0.68, -0.55, 0.265, 1.55);
+    --underline-ease-spring: cubic-bezier(0.34, 1.56, 0.64, 1);
+    
+    /* Offset variants - negative values move underline down (away from text) */
+    --underline-offset-1: calc(var(--spacing) * -2);
+    --underline-offset-2: calc(var(--spacing) * -4);
+}
+
+/* Base utility - sets up container, CSS variables, and initial collapsed state */
+@utility underline-base {
+    display: inline-block;
+    position: relative;
+    
+    --underline-thickness: 2px;
+    --underline-offset: 0px;
+    --underline-duration: 300ms;
+    --underline-timing: ease-in-out;
+    --underline-origin: left;
+    --underline-origin-in: left;
+    --underline-origin-out: left;
+    --underline-color: currentColor;
+    
+    @variant after {
+        position: absolute;
+        content: "";
+        height: var(--underline-thickness);
+        bottom: var(--underline-offset);
+        left: 0;
+        right: 0;
+        background-color: var(--underline-color);
+        transform: scaleX(0);
+        transform-origin: var(--underline-origin-out);
+        transition: transform var(--underline-duration) var(--underline-timing);
+    }
+}
+
+/* Expanded state - underline visible */
+@utility underline-expanded {
+    @variant after {
+        transform: scaleX(1);
+        transform-origin: var(--underline-origin-in);
+    }
+}
+
+/* Direction utilities - simple (same for both in/out) */
+@utility underline-from-left {
+    --underline-origin: left;
+    --underline-origin-in: left;
+    --underline-origin-out: left;
+}
+
+@utility underline-from-right {
+    --underline-origin: right;
+    --underline-origin-in: right;
+    --underline-origin-out: right;
+}
+
+@utility underline-from-center {
+    --underline-origin: center;
+    --underline-origin-in: center;
+    --underline-origin-out: center;
+}
+
+/* Independent direction control for in/out animations */
+@utility underline-in-from-left {
+    --underline-origin-in: left;
+}
+
+@utility underline-in-from-right {
+    --underline-origin-in: right;
+}
+
+@utility underline-in-from-center {
+    --underline-origin-in: center;
+}
+
+@utility underline-out-from-left {
+    --underline-origin-out: left;
+}
+
+@utility underline-out-from-right {
+    --underline-origin-out: right;
+}
+
+@utility underline-out-from-center {
+    --underline-origin-out: center;
+}
+
+/* Thickness utilities */
+@utility underline-* {
+    --underline-thickness: calc(--value(integer) * 1px);
+    --underline-thickness: --value([length]);
+    --underline-thickness: --value(--underline-thickness-*);
+}
+
+/* Offset utilities - positive values move underline down (away from text) */
+@utility underline-offset-* {
+    --underline-offset: calc(--value(integer) * var(--spacing) * -1);
+    --underline-offset: --value([dimension]);
+    --underline-offset: calc(--value(--spacing-*) * -1);
+    --underline-offset: --value(--underline-offset-*);
+}
+
+@utility -underline-offset-* {
+    --underline-offset: calc(--value(integer) * var(--spacing));
+    --underline-offset: calc(--value([dimension]) * -1);
+    --underline-offset: --value(--spacing-*);
+    --underline-offset: calc(--value(--underline-offset-*) * -1);
+}
+
+/* Duration utilities */
+@utility underline-duration-* {
+    --underline-duration: calc(--value(integer) * 1ms);
+    --underline-duration: --value([time]);
+    --underline-duration: --value(--underline-duration-*);
+}
+
+/* Timing utilities */
+@utility underline-timing-* {
+    --underline-timing: --value([*]);
+    --underline-timing: --value(--underline-timing-*);
+}
+
+/* Ease presets using timing pattern */
+@utility underline-ease-* {
+    --underline-timing: --value([*]);
+    --underline-timing: --value(--underline-ease-*);
+}
+
+/* Color utilities */
+@utility underline-color-* {
+    --underline-color: --value([color]);
+}
