@@ -3,7 +3,12 @@
    Animated Underline System - Tailwind v4
    ============================================
    
-   GPU-accelerated underline animations with full Tailwind variant support.
+   Created by: ArtusLama (ArtusDev / Arthur)
+   Copyright © 2025 ArtusLama
+   
+   GPU-accelerated underline animations with full Tailwind v4 integration.
+   Leverages modern CSS features including CSS variables, transform animations,
+   and Tailwind's @utility directive for maximum flexibility and performance.
    
    BASIC USAGE:
    ------------
@@ -14,56 +19,111 @@
    PATTERN:
    --------
    1. underline-base              → Sets up positioning, CSS variables & initial hidden state
-   2. [trigger]:underline-expanded → Show on your trigger
+   2. [trigger]:underline-expanded → Show on your trigger (hover, focus, active, group-*, etc.)
    
    CUSTOMIZATION:
    --------------
-   Direction (simple - same for in & out):
+   Direction (simple - bidirectional, same for in & out):
      underline-left     → Expand left to right (default)
      underline-right    → Expand right to left
-     underline-center   → Expand from center
+     underline-center   → Expand from center outward
    
    Direction (advanced - independent in/out control):
      underline-in-left + underline-out-right   → Enter from left, exit to right
      underline-in-right + underline-out-left   → Enter from right, exit to left
      underline-in-center + underline-out-left  → Enter from center, exit to left
-     (Mix and match any combination)
+     underline-in-center + underline-out-right → Enter from center, exit to right
+     (Mix and match any of the 9 possible combinations)
    
-   Thickness (theme + arbitrary):
-     underline-thin         → 1px
-     underline-thick        → 3px
-     underline-bold         → 4px
-     underline-[5px]        → Any length
+   Thickness (supports theme tokens, bare integers, and arbitrary values):
+     underline-thin         → 1px (theme token)
+     underline-thick        → 3px (theme token)
+     underline-bold         → 4px (theme token)
+     underline-5            → 5px (bare integer → px)
+     underline-[5px]        → 5px (arbitrary value)
+     underline-[0.5rem]     → 0.5rem (arbitrary value)
    
-   Duration (theme + arbitrary):
-     underline-duration-fast    → 150ms
-     underline-duration-slow    → 500ms
-     underline-duration-[1s]    → Any duration
+   Duration (supports theme tokens, bare integers, and arbitrary values):
+     underline-duration-fast    → 150ms (theme token)
+     underline-duration-slow    → 500ms (theme token)
+     underline-duration-1000    → 1000ms (bare integer → ms)
+     underline-duration-[1s]    → 1s (arbitrary value)
+     underline-duration-[1.5s]  → 1.5s (arbitrary value)
    
-   Timing (theme + arbitrary):
-     underline-ease-bounce      → Elastic bounce
-     underline-timing-[ease-in] → Any timing function
+   Timing (supports theme presets and arbitrary functions):
+     underline-ease-bounce      → Elastic bounce (theme preset)
+     underline-ease-spring      → Spring overshoot (theme preset)
+     underline-timing-[linear]  → Linear timing (arbitrary)
+     underline-timing-[ease-in] → Ease-in timing (arbitrary)
+     underline-timing-[cubic-bezier(0.4,0,0.2,1)] → Custom bezier (arbitrary)
    
-   Offset (theme + arbitrary, supports negative):
-     underline-offset-1         → -2px
-     underline-offset-[4px]     → Positive offset
-     -underline-offset-[5px]    → Negative offset
+   Offset (supports theme tokens, spacing scale, and arbitrary values):
+     Positive values move underline DOWN (away from text)
+     Negative values move underline UP (closer to text)
+     
+     underline-offset-1         → Uses --underline-offset-1 theme token (calc(var(--spacing) * -2))
+     underline-offset-2         → Uses --underline-offset-2 theme token (calc(var(--spacing) * -4))
+     underline-offset-4         → Uses spacing scale: 4 × 0.25rem × -1 = -1rem (down)
+     underline-offset-[3px]     → 3px × -1 = -3px (down)
+     underline-offset-[-2px]    → -2px (up, preserves negative sign)
+     -underline-offset-4        → 4 × 0.25rem = 1rem (up, inverted)
+     -underline-offset-[3px]    → 3px (up, no inversion)
    
-   Color (arbitrary):
-     underline-color-[red]      → Any color
+   Color (supports arbitrary color values):
+     underline-color-[red]                → Named color
+     underline-color-[#3b82f6]            → Hex color
+     underline-color-[rgb(59,130,246)]    → RGB color
+     underline-color-[oklch(0.7_0.2_150)] → OKLCH color
+     (Defaults to currentColor if not specified)
    
    EXAMPLES:
    ---------
+   Basic:
    <a class="underline-base hover:underline-expanded">
    
+   With direction and speed:
    <a class="underline-base underline-center underline-duration-fast 
              hover:underline-expanded">
    
+   With custom thickness and easing:
    <button class="underline-base underline-bold underline-ease-bounce 
                   active:underline-expanded">
    
+   Complex combination with arbitrary values:
    <a class="underline-base underline-[8px] underline-duration-[2s] 
-             underline-color-[#3b82f6] hover:underline-expanded">
+             underline-color-[#3b82f6] underline-in-left underline-out-right
+             hover:underline-expanded">
+   
+   Navigation link with group hover:
+   <a class="group">
+     <span class="underline-base underline-center group-hover:underline-expanded">
+       Link Text
+     </span>
+   </a>
+   
+   TECHNICAL DETAILS:
+   ------------------
+   - Uses transform: scaleX() for GPU-accelerated 60fps animations
+   - Employs CSS custom properties for runtime configuration
+   - No JavaScript required - pure CSS solution
+   - Tree-shakeable - only used classes included in final CSS
+   - Compatible with all Tailwind variants (hover, focus, active, group-*, etc.)
+   - Supports Tailwind v4's --value() function with multiple declarations
+   - Resolution order: bare integers → arbitrary values → spacing scale → theme tokens
+   
+   THEME EXTENSION:
+   ----------------
+   Extend with custom tokens in your CSS:
+   
+   @theme {
+     --underline-thickness-hairline: 0.5px;
+     --underline-duration-ultra-fast: 75ms;
+     --underline-ease-elastic: cubic-bezier(0.68, -0.55, 0.27, 1.55);
+     --underline-offset-3: calc(var(--spacing) * -6);
+   }
+   
+   Then use: underline-hairline, underline-duration-ultra-fast, 
+             underline-ease-elastic, underline-offset-3
    
    ============================================ */
 
