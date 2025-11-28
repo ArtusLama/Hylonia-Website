@@ -11,7 +11,7 @@ const { ready: showCopyIcon, start: startShowCopied } = useTimeout(2000, { contr
 
 function copyServerAddress() {
     const serverAddress = useRuntimeConfig().public.mcServer.address
-    void navigator.clipboard.writeText(serverAddress)
+    navigator.clipboard.writeText(serverAddress)
     startShowCopied()
 }
 </script>
@@ -19,11 +19,11 @@ function copyServerAddress() {
 <template>
     <div class="flex items-center gap-8">
         <p class="text-lg font-bold">
-            JOIN NOW:
+            Join Now:
         </p>
         <UiButton
             size="lg"
-            class="bg-footer-muted uppercase text-lg font-bold font-mono"
+            class="uppercase text-lg font-bold font-mono cursor-pointer"
             @click="copyServerAddress"
         >
             <Icon :name=" showCopyIcon ? 'lucide:clipboard' : 'lucide:check'" />
