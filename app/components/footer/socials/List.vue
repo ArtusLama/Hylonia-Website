@@ -3,6 +3,7 @@
         <FooterSocialsIcon
             v-for="i in 5"
             :key="i"
+            to="test"
         />
     </div>
 </template>

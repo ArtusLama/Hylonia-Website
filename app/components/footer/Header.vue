@@ -23,7 +23,7 @@ function copyServerAddress() {
         </p>
         <UiButton
             size="lg"
-            class="bg-footer-muted uppercase font-bold"
+            class="bg-footer-muted uppercase text-lg font-bold font-mono"
             @click="copyServerAddress"
         >
             <Icon :name=" showCopyIcon ? 'lucide:clipboard' : 'lucide:check'" />

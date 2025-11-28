@@ -5,7 +5,7 @@ defineProps<{
 </script>
 
 <template>
-    <section class="text-footer-muted-foreground">
+    <section class="text-footer-muted-foreground space-y-2">
         <h3 class="font-bold text-lg uppercase text-footer-foreground">
             {{ title }}
         </h3>
