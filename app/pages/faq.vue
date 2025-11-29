@@ -20,7 +20,8 @@ const faqItems = [
 </script>
 
 <template>
-    <div class="w-full">
+    <div class="w-full space-y-8">
+        <AppFaqInfoCard />
         <AppFaqAccordion :items="faqItems" />
     </div>
 </template>

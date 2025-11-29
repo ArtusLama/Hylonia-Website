@@ -17,6 +17,7 @@ export default defineNuxtConfig({
         "@nuxtjs/i18n",
         "@pinia/nuxt",
         "lenis/nuxt",
+        "v-gsap-nuxt",
     ],
 
     eslint: {

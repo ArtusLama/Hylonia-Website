@@ -23,15 +23,14 @@ syncRef(isOpen, lockScroll)
             <div
                 class="flex items-center justify-between"
             >
-                <div class="inline-flex items-center gap-x-2">
+                <NuxtLinkLocale to="/">
                     <NuxtImg
-                        src="/img/logo.png"
-                        :width="40"
-                        :height="40"
+                        src="/img/text-logo.png"
+                        :width="150"
+                        :height="30"
                         alt="Server Logo"
                     />
-                    (Put text logo here)
-                </div>
+                </NuxtLinkLocale>
                 <div class="flex gap-2 items-center">
                     <ColorSchemeToggleButton />
                     <NavigationMobileBurgerMenuButton v-model="isOpen" />
