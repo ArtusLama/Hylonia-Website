@@ -16,7 +16,7 @@ useSchemaOrg([
     <div>
         <VueLenis
             root
-            :options="{ duration: 1 }"
+            :options="{ duration: 0.75 }"
         />
 
         <NuxtRouteAnnouncer />

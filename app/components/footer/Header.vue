@@ -18,17 +18,24 @@ function copyServerAddress() {
 
 <template>
     <div class="flex flex-col md:flex-row items-center gap-x-8 gap-y-2">
-        <p class="text-lg font-bold">
-            Join Now:
-        </p>
-        <UiButton
-            size="lg"
-            class="uppercase text-lg font-bold font-mono cursor-pointer"
-            @click="copyServerAddress"
-        >
-            <Icon :name=" showCopyIcon ? 'lucide:clipboard' : 'lucide:check'" />
-            hylonia.net
-        </UiButton>
+        <div class="text-center md:text-left">
+            <p class="text-lg font-bold">
+                Play Now:
+            </p>
+            <p class="text-footer-muted-foreground font-semibold">
+                Java & Bedrock
+            </p>
+        </div>
+        <div>
+            <UiButton
+                size="lg"
+                class="uppercase text-lg font-bold font-mono cursor-pointer select-text"
+                @click="copyServerAddress"
+            >
+                <Icon :name=" showCopyIcon ? 'lucide:clipboard' : 'lucide:check'" />
+                hylonia.net
+            </UiButton>
+        </div>
 
         <div class="flex items-center gap-2">
             <span
