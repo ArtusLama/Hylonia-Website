@@ -18,7 +18,7 @@ function copyServerAddress() {
 
 <template>
     <div class="flex flex-col md:flex-row items-center gap-x-8 gap-y-2">
-        <div class="text-center md:text-left">
+        <div class="text-center md:text-left *:leading-4">
             <p class="text-lg font-bold">
                 Play Now:
             </p>

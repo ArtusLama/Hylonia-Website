@@ -1,5 +1,6 @@
 <template>
-    <div>
-        <p>nothing here yet</p>
+    <div class="w-full space-y-8">
+        <AppRulesInfoCard />
+        <AppRulesTabsMenu />
     </div>
 </template>
