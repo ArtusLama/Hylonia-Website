@@ -10,15 +10,15 @@
             <UiButton
                 as-child
             >
-                <NuxtLinkLocale to="/support">
-                    Support kontaktieren
-                </NuxtLinkLocale>
-            </UiButton>
-            <UiButton
-                variant="outline"
-                as-child
-            >
-                <NuxtLinkLocale to="/discord">
+                <NuxtLinkLocale
+                    to="https://discord.gg/hylonia"
+                    external
+                    target="_blank"
+                >
+                    <Icon
+                        name="simple-icons:discord"
+                        :size="18"
+                    />
                     Discord Community
                 </NuxtLinkLocale>
             </UiButton>

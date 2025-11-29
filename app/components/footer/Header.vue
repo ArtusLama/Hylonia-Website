@@ -17,7 +17,7 @@ function copyServerAddress() {
 </script>
 
 <template>
-    <div class="flex items-center gap-8">
+    <div class="flex flex-col md:flex-row items-center gap-x-8 gap-y-2">
         <p class="text-lg font-bold">
             Join Now:
         </p>

@@ -9,16 +9,15 @@ defineProps<{
         as-child
         size="icon-xl"
         variant="outline"
-        class="bg-transparent border-footer-muted hover:bg-footer-muted/80 hover:text-footer-muted-foreground"
+        class="bg-transparent border-footer-muted hover:bg-footer-muted/80 hover:text-footer-foreground transition-colors"
     >
         <NuxtLinkLocale
             :to="to"
+            external
+            target="_blank"
             aria-label="Social Media Link"
         >
-            <Icon
-                name="lucide:trees"
-                :size="22"
-            />
+            <slot />
         </NuxtLinkLocale>
     </UiButton>
 </template>

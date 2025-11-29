@@ -18,7 +18,7 @@ const secondHalf = links.slice(middleIndex)
 </script>
 
 <template>
-    <nav class="fixed top-0 left-0 right-0 px-8 py-4 flex items-center justify-between z-40">
+    <nav class="fixed top-0 left-0 right-0 px-8 py-3 flex items-center justify-between z-40 bg-background border-b">
         <div class="flex gap-x-4 grow basis-0 justify-end transition-[width] duration-500">
             <NavigationDesktopLink
                 v-for="link in firstHalf"

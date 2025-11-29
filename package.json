@@ -43,6 +43,7 @@
   },
   "devDependencies": {
     "@iconify-json/lucide": "^1.2.73",
+    "@iconify-json/simple-icons": "^1.2.60",
     "husky": "^9.1.7",
     "lint-staged": "^16.2.6"
   },
