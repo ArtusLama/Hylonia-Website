@@ -30,13 +30,20 @@ watch(selectedTab, updateUrlForTab)
 watch(() => route.query.tab, (newTab) => {
     selectedTab.value = getTabFromQuery(newTab as string)
 })
+
+const isDesktop = useMediaQuery("(min-width: 768px)")
+const tabsOrientation = computed(() => isDesktop.value ? "horizontal" : "vertical")
 </script>
 
 <template>
     <UiTabs
         v-model:model-value="selectedTab"
+        :orientation="tabsOrientation"
     >
-        <UiTabsList class="mx-auto">
+        <UiTabsList
+            class="mx-auto flex"
+            :class="{ 'flex-col w-56': tabsOrientation == 'vertical' }"
+        >
             <UiTabsTrigger value="general">
                 <Icon
                     name="lucide:layout-grid"
