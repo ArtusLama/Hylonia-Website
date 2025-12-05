@@ -1,3 +1,61 @@
 {
-    
+    "time": {
+        "years": {
+            "sg": "Jahr",
+            "pl": "Jahre"
+        },
+        "months": {
+            "sg": "Monat",
+            "pl": "Monate"
+        },
+        "days": {
+            "sg": "Tag",
+            "pl": "Tage"
+        }
+    },
+    "team": {
+        "header": {
+            "title": "Unser Team"
+        },
+        "memberCard": {
+            "since": "Beigetreten:"
+        },
+        "roleSelection": {
+            "all": "Alle"
+        },
+        "roles": {
+            "owner": {
+                "short": "Inhaber",
+                "long": "Inhaber"
+            },
+            "admin": {
+                "short": "Admin",
+                "long": "Administrator"
+            },
+            "dev": {
+                "short": "Dev",
+                "long": "Entwickler"
+            },
+            "srMod": {
+                "short": "Sr. Mod",
+                "long": "Senior Moderator"
+            },
+            "mod": {
+                "short": "Mod",
+                "long": "Moderator"
+            },
+            "srContent": {
+                "short": "Sr. Content",
+                "long": "Senior Content"
+            },
+            "content": {
+                "short": "Content",
+                "long": "Content"
+            },
+            "supporter": {
+                "short": "Supporter",
+                "long": "Supporter"
+            }
+        }
+    }
 }

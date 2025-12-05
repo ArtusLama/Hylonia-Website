@@ -18,7 +18,18 @@ export default defineNuxtConfig({
         "@pinia/nuxt",
         "lenis/nuxt",
         "v-gsap-nuxt",
+        "@formkit/auto-animate/nuxt",
     ],
+
+    app: {
+        head: {
+            script: [
+                {
+                    src: "https://tweakcn.com/live-preview.min.js",
+                },
+            ],
+        },
+    },
 
     eslint: {
         config: {
