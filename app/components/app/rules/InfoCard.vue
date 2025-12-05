@@ -1,7 +1,7 @@
 <template>
     <UiCard>
         <UiCardHeader class="flex flex-col items-center text-center">
-            <UiCardTitle class="text-xl flex items-center gap-2">
+            <UiCardTitle class="flex items-center gap-2">
                 <Icon
                     name="lucide:book-open-text"
                     :size="22"
